@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="小张的学习笔记 - 技术文章">
+    <title>文章 - 小张的学习笔记</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <style>
+        /* --- 文章内容区 --- */
+        .article-container {
+            grid-column: 1 / -1;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .article-loading {
+            text-align: center;
+            padding: 80px 20px;
+            color: #999;
+        }
+
+        .article-loading .spinner {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            border: 3px solid #e0e0e0;
+            border-top-color: #3498db;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 12px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .article-error {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .article-error h2 {
+            color: #e74c3c;
+            margin-bottom: 12px;
+        }
+
+        .article-error p {
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .article-error a {
+            color: #3498db;
+        }
+
+        /* --- Markdown 渲染样式 --- */
+        .markdown-body {
+            background: #fff;
+            padding: 40px 44px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            line-height: 1.85;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .markdown-body h1 {
+            font-size: 1.9em;
+            margin-bottom: 0.3em;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+        }
+
+        .markdown-body h2 {
+            font-size: 1.45em;
+            margin-top: 1.8em;
+            margin-bottom: 0.6em;
+            padding-bottom: 0.2em;
+            border-bottom: 1px solid #e8e8e8;
+            color: #2c3e50;
+        }
+
+        .markdown-body h3 {
+            font-size: 1.2em;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            color: #2c3e50;
+        }
+
+        .markdown-body p {
+            margin-bottom: 1.1em;
+        }
+
+        .markdown-body blockquote {
+            margin: 1.2em 0;
+            padding: 10px 20px;
+            border-left: 4px solid #3498db;
+            background: #f0f7ff;
+            color: #555;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .markdown-body blockquote p {
+            margin-bottom: 0.3em;
+        }
+
+        .markdown-body code {
+            font-family: "Fira Code", "Cascadia Code", Consolas, "Source Code Pro", monospace;
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #e74c3c;
+        }
+
+        .markdown-body pre {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 18px 20px;
+            overflow-x: auto;
+            margin: 1.2em 0;
+            line-height: 1.55;
+        }
+
+        .markdown-body pre code {
+            background: none;
+            padding: 0;
+            font-size: 0.88em;
+            color: #333;
+        }
+
+        .markdown-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2em 0;
+            font-size: 0.93em;
+        }
+
+        .markdown-body table th,
+        .markdown-body table td {
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .markdown-body table th {
+            background: #f0f7ff;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .markdown-body table tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .markdown-body ul,
+        .markdown-body ol {
+            padding-left: 1.8em;
+            margin-bottom: 1.1em;
+        }
+
+        .markdown-body li {
+            margin-bottom: 0.35em;
+        }
+
+        .markdown-body hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2em 0;
+        }
+
+        .markdown-body a {
+            color: #3498db;
+        }
+
+        .markdown-body strong {
+            color: #2c3e50;
+        }
+
+        .markdown-body img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .markdown-body {
+                padding: 24px 20px;
+                font-size: 14px;
+            }
+
+            .markdown-body h1 {
+                font-size: 1.5em;
+            }
+
+            .markdown-body h2 {
+                font-size: 1.25em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo">📒 小张的学习笔记</a>
+                <nav class="site-nav">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="notes.html" class="nav-link">学习笔记</a>
+                    <a href="about.html" class="nav-link">关于我</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="article-container">
+            <!-- 加载中 -->
+            <div id="article-loading" class="article-loading">
+                <div class="spinner"></div>
+                <p>正在加载文章...</p>
+            </div>
+
+            <!-- 文章内容 -->
+            <div id="article-content" class="markdown-body" style="display:none;"></div>
+
+            <!-- 加载失败 -->
+            <div id="article-error" class="article-error" style="display:none;">
+                <h2>😕 文章加载失败</h2>
+                <p id="error-message"></p>
+                <p><a href="notes.html">← 返回笔记列表</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <p>&copy; 2026 小张的学习笔记 | 个人学习分享，非商业网站</p>
+                    <p class="icp-info">
+                        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">湘ICP备2026022903号-1</a>
+                    </p>
+                </div>
+                <div class="footer-statement">
+                    <p>本站为个人记录与分享平台，所有内容仅供学习交流使用。</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        const loadingEl = document.getElementById('article-loading');
+        const contentEl = document.getElementById('article-content');
+        const errorEl = document.getElementById('article-error');
+        const errorMsgEl = document.getElementById('error-message');
+
+        // 获取 article 参数
+        const params = new URLSearchParams(window.location.search);
+        const articleName = params.get('article');
+
+        if (!articleName) {
+            showError('未指定文章名称。请从<a href="notes.html">笔记列表</a>选择一篇文章。');
+            return;
+        }
+
+        // 安全性：只允许字母、数字、连字符和下划线
+        if (!/^[a-zA-Z0-9_-]+$/.test(articleName)) {
+            showError('文章名称包含无效字符。');
+            return;
+        }
+
+        // 文章标题映射
+        const titles = {
+            'javascript-async': 'JavaScript 异步编程：从回调到 async/await',
+            'photography-basics': '学摄影的一些零星笔记',
+            'persistence': '关于坚持学习这件事',
+            'git-commands': 'Git 常用命令速查手册',
+            'slow-down': '慢下来，也是一种能力'
+        };
+
+        // 加载并渲染 Markdown
+        const mdUrl = 'docs/' + articleName + '.md';
+
+        fetch(mdUrl)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('文章文件不存在（HTTP ' + response.status + '）');
+                }
+                return response.text();
+            })
+            .then(function(markdown) {
+                // 配置 marked
+                if (typeof marked.setOptions === 'function') {
+                    marked.setOptions({
+                        breaks: true,
+                        gfm: true
+                    });
+                }
+
+                // 渲染 Markdown
+                var html = marked.parse(markdown);
+
+                // 更新页面标题
+                if (titles[articleName]) {
+                    document.title = titles[articleName] + ' - 小张的学习笔记';
+                }
+
+                // 显示内容
+                contentEl.innerHTML = html;
+                loadingEl.style.display = 'none';
+                contentEl.style.display = 'block';
+
+                // 代码高亮
+                if (typeof hljs !== 'undefined') {
+                    document.querySelectorAll('.markdown-body pre code').forEach(function(block) {
+                        hljs.highlightElement(block);
+                    });
+                }
+
+                // 让表格可以水平滚动（小屏幕）
+                document.querySelectorAll('.markdown-body table').forEach(function(table) {
+                    var wrapper = document.createElement('div');
+                    wrapper.style.overflowX = 'auto';
+                    table.parentNode.insertBefore(wrapper, table);
+                    wrapper.appendChild(table);
+                });
+            })
+            .catch(function(err) {
+                showError(err.message);
+            });
+
+        function showError(msg) {
+            loadingEl.style.display = 'none';
+            errorEl.style.display = 'block';
+            errorMsgEl.innerHTML = msg;
+        }
+    })();
+    </script>
+</body>
+</html>

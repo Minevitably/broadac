@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="小张的学习笔记 - 全部学习笔记文章列表">
-    <title>学习笔记 - 小张的学习笔记</title>
+    <meta name="description" content="小张的学习笔记 - 全部文章列表">
+    <title>全部文章 - 小张的学习笔记</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +16,6 @@
                     <a href="index.html" class="nav-link">首页</a>
                     <a href="notes.html" class="nav-link active">学习笔记</a>
                     <a href="about.html" class="nav-link">关于我</a>
-                    <a href="guestbook.html" class="nav-link">留言板</a>
                 </nav>
             </div>
         </div>
@@ -24,86 +23,46 @@
 
     <main class="container">
         <section class="page-content">
-            <h1 class="page-title">全部学习笔记</h1>
-            <p class="page-desc">这里记录了我的学习历程，希望这些内容对你也有所帮助。</p>
+            <h1 class="page-title">全部文章</h1>
+            <p class="page-desc">记录编程学习、摄影练习和生活里那些值得留下的瞬间。</p>
 
-            <!-- 前端开发 -->
-            <h2 class="category-heading">📱 前端开发</h2>
+            <!-- 技术笔记 -->
+            <h2 class="category-heading">💻 技术笔记</h2>
             <div class="notes-grid">
                 <div class="note-item">
                     <span class="note-date">2026-06-10</span>
-                    <span class="note-title">JavaScript 异步编程：从回调到 async/await</span>
+                    <a href="article.html?article=javascript-async" class="note-title">JavaScript 异步编程：从回调到 async/await</a>
                     <span class="note-tags">JavaScript · 异步 · ES6</span>
                 </div>
                 <div class="note-item">
-                    <span class="note-date">2026-04-22</span>
-                    <span class="note-title">CSS Flexbox 与 Grid 布局完全指南</span>
-                    <span class="note-tags">CSS · 布局 · 响应式</span>
-                </div>
-                <div class="note-item">
-                    <span class="note-date">2026-04-10</span>
-                    <span class="note-title">Vue 3 组合式 API 入门实践</span>
-                    <span class="note-tags">Vue3 · 前端框架</span>
-                </div>
-                <div class="note-item">
-                    <span class="note-date">2026-03-18</span>
-                    <span class="note-title">HTTP 缓存策略详解</span>
-                    <span class="note-tags">HTTP · 缓存 · 性能优化</span>
+                    <span class="note-date">2026-05-20</span>
+                    <a href="article.html?article=git-commands" class="note-title">Git 常用命令速查手册</a>
+                    <span class="note-tags">Git · 版本控制 · 效率工具</span>
                 </div>
             </div>
 
-            <!-- 后端开发 -->
-            <h2 class="category-heading">⚙️ 后端开发</h2>
+            <!-- 摄影 -->
+            <h2 class="category-heading">📷 摄影</h2>
             <div class="notes-grid">
                 <div class="note-item">
-                    <span class="note-date">2026-05-28</span>
-                    <span class="note-title">RESTful API 设计最佳实践</span>
-                    <span class="note-tags">API设计 · 后端 · RESTful</span>
-                </div>
-                <div class="note-item">
-                    <span class="note-date">2026-05-12</span>
-                    <span class="note-title">Node.js 中间件机制浅析</span>
-                    <span class="note-tags">Node.js · Express · 中间件</span>
-                </div>
-                <div class="note-item">
-                    <span class="note-date">2026-04-05</span>
-                    <span class="note-title">关系型数据库索引优化实战</span>
-                    <span class="note-tags">MySQL · 索引 · 性能优化</span>
+                    <span class="note-date">2026-06-08</span>
+                    <a href="article.html?article=photography-basics" class="note-title">学摄影的一些零星笔记</a>
+                    <span class="note-tags">摄影入门 · 构图 · 光影</span>
                 </div>
             </div>
 
-            <!-- 数据结构与算法 -->
-            <h2 class="category-heading">🔢 数据结构与算法</h2>
+            <!-- 生活随笔 -->
+            <h2 class="category-heading">✍️ 生活随笔</h2>
             <div class="notes-grid">
                 <div class="note-item">
-                    <span class="note-date">2026-06-05</span>
-                    <span class="note-title">常见排序算法总结与 Python 实现</span>
-                    <span class="note-tags">算法 · Python · 排序</span>
+                    <span class="note-date">2026-05-25</span>
+                    <a href="article.html?article=persistence" class="note-title">关于坚持学习这件事</a>
+                    <span class="note-tags">思考 · 学习方法 · 成长</span>
                 </div>
                 <div class="note-item">
-                    <span class="note-date">2026-03-25</span>
-                    <span class="note-title">链表操作常见题型总结</span>
-                    <span class="note-tags">链表 · 数据结构 · LeetCode</span>
-                </div>
-                <div class="note-item">
-                    <span class="note-date">2026-03-02</span>
-                    <span class="note-title">动态规划入门：从斐波那契到背包问题</span>
-                    <span class="note-tags">动态规划 · 算法入门</span>
-                </div>
-            </div>
-
-            <!-- 读书笔记 -->
-            <h2 class="category-heading">📚 读书笔记</h2>
-            <div class="notes-grid">
-                <div class="note-item">
-                    <span class="note-date">2026-05-15</span>
-                    <span class="note-title">读《代码整洁之道》——写出让人看得懂的代码</span>
-                    <span class="note-tags">读书笔记 · 代码规范</span>
-                </div>
-                <div class="note-item">
-                    <span class="note-date">2026-02-20</span>
-                    <span class="note-title">读《计算机程序的构造和解释》第一章</span>
-                    <span class="note-tags">SICP · 编程思想</span>
+                    <span class="note-date">2026-05-10</span>
+                    <a href="article.html?article=slow-down" class="note-title">慢下来，也是一种能力</a>
+                    <span class="note-tags">生活 · 反思 · 成长</span>
                 </div>
             </div>
         </section>
@@ -119,7 +78,7 @@
                     </p>
                 </div>
                 <div class="footer-statement">
-                    <p>本站为个人学习笔记记录与分享平台，所有内容仅供学习交流使用。</p>
+                    <p>本站为个人记录与分享平台，所有内容仅供学习交流使用。</p>
                 </div>
             </div>
         </div>
